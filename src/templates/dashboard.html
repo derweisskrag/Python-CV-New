@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dashboard</title>
+	<link rel="icon" href="{{url_for('static', filename='favicon.ico')}}" />
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='global.css')}}">
+</head>
+<body>
+
+		<!-- Navigation -->
+		<header class="header">
+			<div class="container">
+				<div class="logo">
+					<img 
+						height="50px"
+						width="50px" 
+						src="{{url_for('static', filename='logo.webp')}}"
+						alt="logo"
+						loading="lazy"
+					>
+				</div>
+
+				<nav class="menu">
+					<ul class="menu-list">
+						<li class="menu-item">
+							<a 
+								href="#"
+								data-link="why"
+							>
+								About
+							</a>
+						</li>
+						<li class="menu-item">
+							<a 
+								href="{{url_for('login')}}"
+							>
+								Login
+							</a>
+						</li>
+						<li class="menu-item">
+							<a 
+								href="#"
+							>
+								Build CV
+							</a>
+						</li>
+						<li class="menu-item">
+							{{user_name.capitalize()}}
+						</li>
+						<li class="menu-item">
+							<a href="{{url_for('home')}}">Home</a>
+						</li>
+						<li class="menu-item">
+							<a href="{{url_for('logout')}}">Log out</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<section class="dashboard">
+			<h1>Create your CV!</h1>
+			<form action="build-cv" id="cv-builder">
+				<div class="order-form-inputs">
+					<div class="order-form-input">
+						<input 
+							type="text"
+							placeholder="First name"
+							id="first-name"
+							name="first-name"
+						>
+					</div>
+					<div class="order-form-input">
+						<input 
+							type="text"
+							placeholder="Last name" 
+							id="last-name"
+							name="last-name"
+						>
+					</div>
+
+					<div class="order-form-input">
+						<input 
+							type="text"
+							placeholder="Email" 
+							id="email"
+							name="email"
+						>
+					</div>
+
+					<div class="order-form-input">
+						<input 
+							type="text"
+							placeholder="Phone" 
+							id="phone"
+							name="phone"
+							pattern="(\+\d+)"
+						>
+					</div>
+
+					<div class="order-form-input">
+						<input 
+							type="text"
+							placeholder="Education" 
+							id="education"
+							name="education"
+						>
+					</div>
+
+					<div class="order-form-input">
+						<input 
+							type="text"
+							placeholder="Work experience" 
+							id="work-experience"
+							name="work-experience"
+						>
+					</div>
+
+					<div class="order-form-input">
+						<input 
+							type="text"
+							placeholder="Englih proficiency" 
+							id="english-proficiency"
+							name="english-proficiency"
+						>
+					</div>
+
+					<div class="order-form-input">
+						<input 
+							type="text"
+							placeholder="Estonian proficiency" 
+							id="estonian-proficiency"
+							name="estonian-proficiency"
+						>
+					</div>
+
+					<div class="order-form-input">
+						<input 
+							type="text"
+							placeholder="Russian proficiency" 
+							id="russian-proficiency"
+							name="russian-proficiency"
+						>
+					</div>
+
+					<div class="order-form-input">
+						<input 
+							type="text"
+							placeholder="Yours mongoose proficiency" 
+							id="mongo-proficiency"
+							name="mongo-proficiency"
+						>
+					</div>
+
+					<div class="order-form-input">
+						<input 
+							type="text"
+							placeholder="Leetcode link" 
+							id="leetcode"
+							name="leetcode"
+						>
+					</div>
+
+					<div class="order-form-input">
+						<input 
+							type="text"
+							placeholder="GitHub link" 
+							id="github"
+							name="github"
+						>
+					</div>
+
+					<div class="order-form-input">
+						<input 
+							type="text"
+							placeholder="Hobby" 
+							id="hobby"
+							name="hobby"
+						>
+					</div>
+
+					<button class="button" id="order-action">
+						Submit
+					</button>
+				</div>
+			</form>
+		</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="logo">
+				<img 
+					height="50px"
+					width="50px" 
+					src="{{url_for('static', filename='logo.webp')}}"
+					alt="logo"
+					loading="lazy"
+				>
+			</div>
+
+			<div class="rights">
+				All rights are protected.
+			</div>
+		</div>
+	</footer>
+
+
+</body>
+</html>

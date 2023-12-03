@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Welcome to CV App</title>
+	<link rel="icon" href="{{url_for('static', filename='favicon.ico')}}" />
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='global.css')}}">
+</head>
+<body>
+		<section class="main">
+
+		<!-- Navigation -->
+		<header class="header">
+			<div class="container">
+				<div class="logo">
+					<img 
+						height="50px"
+						width="50px" 
+						src="{{url_for('static', filename='logo.webp')}}"
+						alt="logo"
+						loading="lazy"
+					>
+				</div>
+
+				<nav class="menu">
+					<ul class="menu-list">
+						<li class="menu-item">
+							<a 
+								href="#"
+								data-link="why"
+							>
+								About
+							</a>
+						</li>
+						<li class="menu-item">
+							<a 
+								href="{{url_for('login')}}"
+							>
+								Login
+							</a>
+						</li>
+						<li class="menu-item">
+							<a 
+								href="#"
+							>
+								Build CV
+							</a>
+						</li>
+
+						{% if user_name and 'logged_in' in session %}
+						<li class="menu-item">
+							{{user_name.capitalize()}}
+						</li>
+						<li class="menu-item">
+							<a href="{{url_for('dashboard')}}">Dashboard</a>
+						</li>
+						<li class="menu-item">
+							<a href="{{url_for('logout')}}">Log out</a>
+						</li>
+						{% else %}
+						<li class="menu-item">
+							Guest
+						</li>
+						
+						{% endif %}
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Content Main section-->
+		<section class="main-content">
+			<div class="container grid">
+				<div class="main-info">
+					<span class="main-small-info">
+						New CV
+					</span>
+					<h1 class="main-title">CV Builder</h1>
+					<p class="main-text">
+						We offer CV builder to create the best resumes.
+					</p>
+
+					<!-- Button -->
+					<div class="main-action">
+						<button 
+							class="button"
+							id="main-action-button"
+						>
+							See examples
+						</button>
+					</div>
+				</div>
+
+				<!-- Cv Image -->
+				<img 
+					src="{{url_for('static', filename='cv.jpg')}}"
+					alt="CV"
+					loading="lazy"
+				>
+			</div>
+		</section>
+
+	<!-- Main section end -->
+	</section>
+
+	<!-- Why section -->
+	<section class="why" id="why">
+		<div class="container">
+			<div class=" why-title common-title">
+				Why us?
+			</div>
+
+			<div class="why-items">
+
+				<!-- The fird card -->
+				<div class="why-item">
+					<img 
+						height="75px"
+						width="75px" 
+						src="{{url_for('static', filename='experience.webp')}}"
+						alt="general"
+						class="why-item-image"
+					>
+					<div class="why-item-title">
+						Best CVs
+					</div>
+					<div class="why-item-text">
+						We build the professional resume for you to stand out on the job market.
+					</div>
+				</div>
+
+				<!-- The second card -->
+				<div class="why-item">
+					<img 
+						width="75px"
+						height="75px" 
+						src="{{url_for('static', filename='service.webp')}}"
+						alt="delivery"
+						class="why-item-image"
+					>
+					<div class="why-item-title">
+						Quick service
+					</div>
+					<div class="why-item-text">
+						We build the fastest CV!
+					</div>
+				</div>
+
+				<!-- The third card -->
+				<div class="why-item">
+					<img 
+						width="75px"
+						height="75px" 
+						src="{{url_for('static', filename='quality.webp')}}"
+						alt="quality"
+						class="why-item-image"
+					>
+					<div class="why-item-title">
+						Quality
+					</div>
+					<div class="why-item-text">
+						Our CV make you stand out
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<!-- The second section end -->
+	</section>
+
+<section class="order" id="order">
+		<div class="container">
+			<div class="order-title common-title">
+				Register
+			</div>
+
+			<!-- Form -->
+			<div class="order-form">
+				<div class="order-form-text">
+					Sign up for getting started!
+				</div>
+
+				<form action="api/users/create-user" method="POST" id="signup-form">
+
+					<div class="order-form-inputs">
+						<div class="order-form-input">
+							<input 
+								type="text"
+								placeholder="username"
+								id="username"
+								name="username"
+							>
+						</div>
+
+						<div class="order-form-input">
+							<input 
+								type="text"
+								placeholder="Email" 
+								id="email"
+								name="email"
+							>
+						</div>
+
+						<div class="order-form-input">
+							<input 
+								type="password"
+								placeholder="password" 
+								id="password"
+								name="password"
+							>
+						</div>
+
+						<div class="order-form-input">
+							<input 
+								type="password"
+								placeholder="Repeat password" 
+								id="repeat-password"
+								name="repeat-password"
+							>
+						</div>
+
+						<button class="button" id="order-action">
+							Submit
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- Order section end -->
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="logo">
+				<img 
+					height="50px"
+					width="50px" 
+					src="{{url_for('static', filename='logo.webp')}}"
+					alt="logo"
+					loading="lazy"
+				>
+			</div>
+
+			<div class="rights">
+				All rights are protected.
+			</div>
+		</div>
+	</footer>
+
+	
+</body>
+</html>

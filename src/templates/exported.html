@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Export of data</title>
+	<link rel="icon" href="{{url_for('static', filename='favicon.ico')}}" />
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='global.css')}}">
+</head>
+<body>
+		<section class="main">
+
+		<!-- Navigation -->
+		<header class="header">
+			<div class="container">
+				<div class="logo">
+					<img 
+						height="50px"
+						width="50px" 
+						src="{{url_for('static', filename='logo.webp')}}"
+						alt="logo"
+						loading="lazy"
+					>
+				</div>
+
+				<nav class="menu">
+					<ul class="menu-list">
+						<li class="menu-item">
+							<a 
+								href="#"
+								data-link="why"
+							>
+								About
+							</a>
+						</li>
+						<li class="menu-item">
+							<a 
+								href="{{url_for('login')}}"
+							>
+								Login
+							</a>
+						</li>
+						<li class="menu-item">
+							<a 
+								href="#"
+							>
+								Build CV
+							</a>
+						</li>
+
+						{% if user_name and 'logged_in' in session %}
+						<li class="menu-item">
+							{{user_name.capitalize()}}
+						</li>
+						<li class="menu-item">
+							<a href="{{url_for('dashboard')}}">Dashboard</a>
+						</li>
+						<li class="menu-item">
+							<a href="{{url_for('logout')}}">Log out</a>
+						</li>
+						{% else %}
+						<li class="menu-item">
+							Guest
+						</li>
+						
+						{% endif %}
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<center><h1>Data has been exported and CV is ready to be created!</h1></center>
+</section>
+</body>
+</html>
