@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'my$key'
 
 # Connect to your MongoDB database
-connect('CV-APP', host='mongodb+srv://adming:Mka-pnYLJ9KYgDH@cv-app.cn4g9ri.mongodb.net/?retryWrites=true&w=majority')
+connect('CV-APP', host='mongodb+srv://<name>:<password>@cv-app.cn4g9ri.mongodb.net/?retryWrites=true&w=majority')
 
 @app.route('/api/users/create-user', methods=['POST'])
 def create_user():
